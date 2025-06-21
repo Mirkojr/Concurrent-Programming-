@@ -48,7 +48,6 @@ void processo_leitor(int reader_id) {
         }
         V(mutex);
 
-        sleep_random();
     }
 }
 
@@ -65,7 +64,6 @@ void processo_escritor(int writer_id) {
                 break;
             }
             V(queue_sem);
-            sleep_short();
         }
 
         P(read_try);
@@ -79,8 +77,6 @@ void processo_escritor(int writer_id) {
 
         V(resource);
         V(read_try);
-
-        sleep_random();
     }
 }
 ```
